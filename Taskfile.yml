@@ -1,18 +1,16 @@
 version: "3"
 
 tasks:
-  watch:
-    interactive: true
-    deps: [rebuild]
-    cmds:
-      - docker compose watch &
-      - task: up
   up:
+    interactive: true
     cmds:
       - docker compose up
   down:
     cmds:
       - docker compose down
-  rebuild:
+  watch:
+    deps: [up]
+    interactive: true
+    silent: true
     cmds:
-      - docker compose build
+      - docker compose watch
