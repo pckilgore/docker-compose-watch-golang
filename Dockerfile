@@ -6,7 +6,7 @@ RUN <<EOR
 cat > /entry.sh <<EOF
 #!/bin/sh
 
-trap 'echo signal received; kill "\${child_pid}"; wait "\${child_pid}"' 2 15
+trap 'kill "\${child_pid}"; wait "\${child_pid}"' 2 15
 go test \$@
 sleep infinity &
 child_pid="\$!"

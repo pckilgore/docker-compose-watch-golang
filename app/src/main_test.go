@@ -1,7 +1,11 @@
-package main
+package mypackage
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/require"
+)
 
 func TestTest(t *testing.T) {
-	t.Log("Test Test 3")
+	require.Equal(t, 1, 1)
 }
